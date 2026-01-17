@@ -20,3 +20,17 @@ const sum2 = (x: number, y: number): string => {
 const log = (message: string): void => {
   console.log(message);
 };
+
+// === function em interface pt2. ===
+
+interface MathFunc{
+  (x: number, y: number): number;
+};
+
+const sum3: MathFunc = (x: number, y: number):  number => {
+  return x + y;
+};
+
+const sub: MathFunc = (x: number, y: number): number => {
+  return x - y;
+};
