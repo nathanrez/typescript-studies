@@ -78,3 +78,95 @@ const userOrder = {
         return this.orders.reduce((sum, order) => sum + order.price, 0);
     }
 }
+
+// 6. Crie um objeto person com name: string, sayName(): void
+
+const person2 = {
+    name: "Nathan",
+    sayName(): void {
+        console.log(this.name);
+    }
+}
+
+// 7. Crie um objeto counter com: value: number increment(): void decrement(): void 
+// Cada método deve: alterar this.value imprimir o valor atual
+
+const object = {
+    value: 3,
+    increment(): void {
+        for(let i = this.value; i === this.value; i++){
+            let increment = this.value + 1;
+            console.log(increment)
+        }
+    },
+    decrement(): void {
+        for(let i = this.value; i === this.value; i++){
+            let increment = this.value - 1;
+            console.log(increment)
+        }
+    }
+}
+
+// ===== CORRECAO 7 ==== (ERA MAIS SIMPLES!!!!!!!!!)
+const counter = {
+  value: 3,
+  increment(): void {
+    this.value++;
+    console.log(this.value);
+  },
+  decrement(): void {
+    this.value--;
+    console.log(this.value);
+  }
+};
+
+
+// 8. Crie um objeto userSession com userName: string, isLogged: boolean
+    //Métodos: login(): void, deve alterar this.isLogged para true, 
+    // imprimir: 👉 Usuário X logado, logout(): void, deve alterar this.isLogged para false, imprimir:
+    // 👉 Usuário X deslogado checkStatus(): void usar setTimeout após 1 segundo, 
+    // imprimir: Usuário X está logado ou Usuário X não está logado
+
+const userSession = {
+    userName: "Thiaguinho",
+    isLogged: false,
+    login(): void {
+        this.isLogged = true;
+        console.log(this.isLogged);
+    },
+    logout(): void {
+        this.isLogged = false;
+        console.log(this.isLogged);
+    }, /*
+    checkStatus(): void {
+        let verificacao = this.isLogged;
+        setTimeout(() => {
+            console.log(verificacao);
+        }, 1000)
+    }*/
+ // === corrigindo apenas a checkStatus... a variavel verificacao guarda a informacao antes do setTimeout, portanto a info nao fica atualizada.
+    checkStatus(): void {
+    setTimeout(() => {
+        console.log(this.isLogged);
+    }, 1000);
+}
+}
+
+// 8. 
+
+const shoppingCart ={
+    items: [] as number[],
+    addItem(item: number):void {
+        this.items.push(item);
+        console.log(`Item "${item}" adicionado!`);
+    },
+    getTotal() {
+        return this.items.reduce((total, numero) => total + numero, 0);
+    }, 
+    printTotalDelayed(): void {
+        setTimeout(()=>{
+            console.log(this.getTotal())
+        }, 1000);
+    }
+}
+
