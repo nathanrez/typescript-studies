@@ -3,8 +3,7 @@
 // ===============================
 
 // Interface define um "contrato"
-// Quem implementar IPerson OBRIGATORIAMENTE
-// precisa ter essas propriedades/métodos
+// Quem implementar IPerson OBRIGATORIAMENTE precisa ter essas propriedades/métodos
 interface IPerson {
     id: number;
     sayMyName(): string;
@@ -74,3 +73,12 @@ const felipe = new Person(1, 'Felipe', 21);
 // felipe.sayMyName() → OK
 // felipe.name → ERRO (protected)
 // felipe.age → ERRO (private)
+
+
+// forma alternativa de declarar classes (menos repeticoes)
+class PersonRefact {
+    constructor(
+        readonly id: number,
+        protected name: string,
+        private age: number ) { }
+}
